@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>CelularController</servlet-name>
+  	<display-name>CelularController</display-name>
+  	<description></description>
+  	<servlet-class>com.grupo1.accenture.controller.CelularController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CelularController</servlet-name>
+  	<url-pattern>/CelularController</url-pattern>
+  </servlet-mapping>
 </web-app>
