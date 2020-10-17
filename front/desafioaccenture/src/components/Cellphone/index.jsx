@@ -12,19 +12,45 @@ const Teclado = () => {
   return (
     <div className="teclado">
       <div className="teclado-row">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <button>
+          1
+        </button>
+        <button>
+          2
+          <small>abc</small>
+        </button>
+        <button>
+          3
+          <small>def</small>
+        </button>
       </div>
       <div className="teclado-row">
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
+        <button>
+          4
+          <small>ghi</small>
+        </button>
+        <button>
+          5
+          <small>jkl</small>
+        </button>
+        <button>
+          6
+          <small>mno</small>
+        </button>
       </div>
       <div className="teclado-row">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
+        <button>
+          7
+          <small>pqrs</small>
+        </button>
+        <button>
+          8
+          <small>tuv</small>
+        </button>
+        <button>
+          9
+          <small>wxyz</small>
+        </button>
       </div>
       <div className="teclado-row">
         <button>*</button>
