@@ -1,6 +1,7 @@
 package com.grupo1.accenture.controller;
 
 import java.io.IOException;
+import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,47 +33,35 @@ public class CelularController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        Map<String,String> exemplo = new HashMap<String,String>();
+        Map<String,Map<String, String>> exemplo = new HashMap<String,Map<String, String>>();
 
         String buscar = (String) request.getParameter("cellphone-value");
 
         /*
         * Vamos adicionar alguns valores a nossa lista
         * */
-       exemplo.put( "2", new String( "A" ));
-       exemplo.put( "22", new String( "B" ));
-       exemplo.put( "222", new String( "C" ));
-       exemplo.put( "3", new String( "D" ));
-       exemplo.put( "33", new String( "E" ));
-       exemplo.put( "333", new String( "F" ));
-       exemplo.put( "4", new String( "G" ));
-       exemplo.put( "44", new String( "H" ));
-       exemplo.put( "444", new String( "I" ));
-       exemplo.put( "5", new String( "J" ));
-       exemplo.put( "55", new String( "K" ));
-       exemplo.put( "555", new String( "L" ));
-       exemplo.put( "6", new String( "M" ));
-       exemplo.put( "66", new String( "N" ));
-       exemplo.put( "666", new String( "O" ));
-       exemplo.put( "7", new String( "P" ));
-       exemplo.put( "77", new String( "Q" ));
-       exemplo.put( "777", new String( "R" ));
-       exemplo.put( "7777", new String( "S" ));
-       exemplo.put( "8", new String( "T" ));
-       exemplo.put( "88", new String( "U" ));
-       exemplo.put( "888", new String( "V" ));
-       exemplo.put( "9", new String( "W" ));
-       exemplo.put( "99", new String( "X" ));
-       exemplo.put( "999", new String( "Y" ));
-       exemplo.put( "9999", new String( "Z" ));
+        
+       buscar = "22"; 
+       
+       Map<String, String> values = new HashMap<String, String>();
+       values.put( "2", new String( "A" ));
+       values.put( "22", new String( "B" ));
+       values.put( "222", new String( "C" ));
 
-       String responseToSend;
+       exemplo.put("2", values);
 
-       if ( exemplo.containsKey( buscar ) ) {
-    	   responseToSend = "Valor da Chave "+buscar+ " = "+exemplo.get(buscar);
-       }else{
-    	   responseToSend = "Chave não existe";
-       }
+       
+       
+       String[] arrayString = buscar.split(" ");
+       String responseToSend = "";
+       
+       for (int i = 0; i < arrayString.length; i++) {
+    	   if (exemplo.containsKey(arrayString[i].charAt(0))) {
+    		   responseToSend = exemplo.get(arrayString[i].charAt(0)).get(arrayString[i].length());
+    	   }
+      }
+       
+
        
        response.getWriter().append(responseToSend);
 	}
