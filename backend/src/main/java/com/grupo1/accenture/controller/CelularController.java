@@ -1,6 +1,7 @@
 package com.grupo1.accenture.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,8 @@ public class CelularController extends HttpServlet {
 		// TODO Auto-generated method stub
         Map<String,String> exemplo = new HashMap<String,String>();
 
+        String buscar = (String) request.getParameter("cellphone-value");
+
         /*
         * Vamos adicionar alguns valores a nossa lista
         * */
@@ -63,8 +66,6 @@ public class CelularController extends HttpServlet {
        exemplo.put( "999", new String( "Y" ));
        exemplo.put( "9999", new String( "Z" ));
 
-
-       String buscar = JOptionPane.showInputDialog("digite a sequencia");
        String responseToSend;
 
        if ( exemplo.containsKey( buscar ) ) {
@@ -72,6 +73,7 @@ public class CelularController extends HttpServlet {
        }else{
     	   responseToSend = "Chave não existe";
        }
+       
        response.getWriter().append(responseToSend);
 	}
 
